@@ -20,7 +20,7 @@ class Blog(db.Model):
 @app.route('/blog')
 def bloglist():
     blog_id = request.args.get('id')
-    
+
     if blog_id:
         blog = Blog.query.get(blog_id)
         return render_template('blog.html', blog_title = blog.title, blog_body = blog.body)
@@ -47,11 +47,12 @@ def newpost():
             new_blog = Blog(blog_title, blog_body)
             db.session.add(new_blog)
             db.session.commit()
-            return redirect('/blog')
+            blog_id = new_blog.id
+            return redirect('/blog?id={0}'.format(blog_id))
         else:
             return render_template('newpost.html', title = 'New Blog Post', blog_body = blog_body,
                                 blog_title = blog_title, title_error = title_error, body_error = body_error)
-    
+
     return render_template('newpost.html', title = 'New Blog Post')
 
 
