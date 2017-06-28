@@ -1,22 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>New Blog Post</h1>
-<form method = 'POST'>
-    <input type = 'text' name = 'blog_title' value = '{{ blog_title }}'/>
-    {% if title_error %}
-        <span class = 'error'>
-            {{ title_error }}
-        </span>
-    {% endif %}
-    <div class = 'blog-body-container'>
-        <textarea name = 'blog_body'>{{ blog_body }}</textarea>
-        {% if body_error %}
+<div class = "new-post-container">
+    <h1 class = "title" >New Blog Post</h1>
+    <form method = 'POST'>
+        <input type = 'text' name = 'blog_title' value = '{{ blog_title }}'/>
+        {% if title_error %}
             <span class = 'error'>
-                {{ body_error }}
+                {{ title_error }}
             </span>
         {% endif %}
-    </div>
-    <input type = 'submit' value = 'Add Entry'/>
-</form>
+        <div class = 'blog-body-container'>
+            <textarea name = 'blog_body' maxlength = "500">{{ blog_body }}</textarea>
+            {% if body_error %}
+                <span class = 'error'>
+                    {{ body_error }}
+                </span>
+            {% endif %}
+        </div>
+        <input type = 'submit' value = 'Add Entry'/>
+    </form>
+</div>
 {% endblock %}
