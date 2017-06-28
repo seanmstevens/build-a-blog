@@ -7,21 +7,68 @@ body, html {
     margin: 0;
 }
 
-a.navlink, a.navlink:visited {
-    font-weight: 500;
-    color: #b4d883;
-    text-decoration: none;
-    margin-right: 15px;
+ul#navbar {
+    box-shadow: 0 0 8px #444444;
+    background-color: #303031;
+    list-style: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
 
-#navbar {
-    padding: 15px 30px;
-    position: fixed;
-    max-height: 46px;
-    box-shadow: 0 0 8px #444444;
-    width: 100%;
-    background-color: #303031;
-    margin: 0;
+li {
+    float: left;
+}
+
+a.navlink, a.navlink:visited {
+    display: block;
+    padding: 21px 12px 18px;
+    font-size: 0.8em;
+    font-weight: 500;
+    color: #c8c8c8;
+    text-decoration: none;
+    text-transform: lowercase;
+    transition: color 0.2s ease;
+}
+
+a.navlink:hover, a.active, a.active:visited {
+    color: #f5f6f6;
+}
+
+a.navlink::after {
+    position: relative;
+    display: block;
+    right: 12px;
+    top: 18px;
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #ffeb3b;
+    transition: width 0.2s ease;
+}
+
+a.active::after {
+    position: relative;
+    display: block;
+    right: 12px;
+    top: 18px;
+    content: '';
+    width: calc(100% + 24px);
+    height: 3px;
+    background: #ffeb3b;
+}
+
+a.navlink:hover:not(.active)::after {
+    width: calc(100% + 24px);
+}
+
+a.navlink-main, a.navlink-main:visited {
+    display: block;
+    padding: 10px 30px;
+    font-size: 2em;
+    font-weight: 700;
+    color: #f5f6f6;
+    text-decoration: none;
 }
 
 h1, h2, h3, strong {
@@ -31,9 +78,10 @@ h1, h2, h3, strong {
 .content-container, .new-post-container, .blog-container {
     width: 820px;
     margin: 0 auto;
-    padding: 8% 0;
+    padding: 5% 0;
 }
 
 .title {
     font-weight: 800;
+    font-size: 3em;
 }

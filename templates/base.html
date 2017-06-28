@@ -7,10 +7,11 @@
         <link href="static/mainpage.css" rel="stylesheet">
     </head>
     <body>
-        <nav id = "navbar">
-            <a class = "navlink" href = '/blog'>My Bloglist</a>
-            <a class = "navlink" href = '/newpost'>New Blog Post</a>
-        </nav>
+        <ul id = "navbar">
+            <li><a class = "navlink-main" href = '/blog'>tinyblog.io</a></li>
+            <li><a class = "navlink {% if request.path == '/blog' %}active{% endif %}" href = '/blog'>My Bloglist</a></li>
+            <li><a class = "navlink {% if request.path == '/newpost' %}active{% endif %}" href = '/newpost'>New Blog Post</a></li>
+        </ul>
         {% block content %}
         {% endblock %}
     </body>
