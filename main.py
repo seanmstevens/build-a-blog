@@ -1,6 +1,7 @@
 from flask import Flask, request, redirect, render_template
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+import random
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -58,7 +59,8 @@ def newpost():
             return render_template('newpost.html', title = 'New Blog Post', blog_body = blog_body,
                                 blog_title = blog_title, title_error = title_error, body_error = body_error)
 
-    return render_template('newpost.html', title = 'New Blog Post')
+    placeholder = random.choice(["What's on your mind?", "How're you doing today?", "This message is randomly generated!"])
+    return render_template('newpost.html', title = 'New Blog Post', placeholder = placeholder)
 
 
 if __name__ == '__main__':

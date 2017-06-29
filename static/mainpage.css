@@ -7,6 +7,8 @@ body, html {
     margin: 0;
 }
 
+/* Navbar CSS */
+
 ul#navbar {
     box-shadow: 0 0 8px #444444;
     background-color: #303031;
@@ -35,31 +37,27 @@ a.navlink:hover, a.active, a.active:visited {
     color: #f5f6f6;
 }
 
-a.navlink::after {
+a.navlink::after, a.active::after {
     position: relative;
     display: block;
     right: 12px;
     top: 18px;
     content: '';
-    width: 0;
     height: 3px;
-    background: #ffeb3b;
+    background: #03a9f4;
+}
+
+a.navlink::after {
+    width: 0;
     transition: width 0.2s ease;
 }
 
-a.active::after {
-    position: relative;
-    display: block;
-    right: 12px;
-    top: 18px;
-    content: '';
+a.active::after, a.navlink:hover:not(.active)::after {
     width: calc(100% + 24px);
-    height: 3px;
-    background: #ffeb3b;
 }
 
-a.navlink:hover:not(.active)::after {
-    width: calc(100% + 24px);
+a.navlink:active::after {
+    width: calc(100% + 24px); 
 }
 
 a.navlink-main, a.navlink-main:visited {
@@ -70,6 +68,8 @@ a.navlink-main, a.navlink-main:visited {
     color: #f5f6f6;
     text-decoration: none;
 }
+
+/* End Navbar CSS */
 
 h1, h2, h3, strong {
     color: #303031;
