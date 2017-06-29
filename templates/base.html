@@ -9,7 +9,9 @@
     <body>
         <ul id = "navbar">
             <li><a class = "navlink-main" href = '/blog'>tinyblog.io</a></li>
-            <li><a class = "navlink {% if request.path == '/blog' %}active{% endif %}" 
+            {# The following conditional is being used to check if a query parameter is present. If it is, do not apply
+            the supplemental CSS class. #}
+            <li><a class = "navlink {% if request.path == '/blog' and len(request.args) == 0 %}active{% endif %}" 
                     href = '/blog'>My Bloglist</a></li>
             <li><a class = "navlink {% if request.path == '/newpost' %}active{% endif %}" 
                     href = '/newpost'>New Blog Post</a></li>
