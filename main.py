@@ -24,6 +24,11 @@ class Blog(db.Model):
             pubdate = datetime.utcnow()
         self.pubdate = pubdate
 
+@app.route('/')
+def index():
+    return redirect('/blog')
+    
+
 @app.route('/blog')
 def bloglist():
     blog_id = request.args.get('id')

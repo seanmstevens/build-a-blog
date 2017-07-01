@@ -3,12 +3,18 @@
 {% block content %}
 <div class = "content-container">
     <h1 class = "title" >My Bloglist</h1>
-    <div class = "bloglist-container">
+    <div class = "bloglist-wrapper">
         {% for blog in blogs %}
-            <h1><a href = '/blog?id={{ blog.id }}'>{{ blog.title }}</a></h1>
-            <p>Published on {{ blog.pubdate.strftime('%B %#d, %Y') }}</p>
-            <p>{{ blog.body }}</p>
-            <hr/>
+            <div class = "entry-container">
+                <h1><a class = "blog-title" href = '/blog?id={{ blog.id }}'>{{ blog.title }}</a></h1>
+                <p class = "pub-date" >Published on {{ blog.pubdate.strftime('%B %d, %Y') }}</p>
+                <p class = "blog-body" >{{ blog.body }}</p>
+                <a class = "goto-entry-button" href = '/blog?id={{ blog.id }}'>READ MORE</a>
+            </div>
+            {# The following conditional will not add a row separator after the last blog entry #}
+            {% if blogs.index(blog) != (len(blogs) - 1) %}
+                <hr>
+            {% endif %}
         {% endfor %}
     </div>
 </div>

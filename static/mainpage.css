@@ -1,15 +1,25 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,500,700,800');
 
+:root {
+    --material-blue: #03a9f4;
+}
+
 body, html {
     font-family: "Raleway", sans-serif;
-    background-color: #f5f6f6;
+    background-color: #efefef;
     color: #3f3f43;
     margin: 0;
+}
+
+hr {
+    border: 2px dashed #c3c3c3;
 }
 
 /* Navbar CSS */
 
 ul#navbar {
+    position: fixed;
+    width: 100%;
     box-shadow: 0 0 8px #444444;
     background-color: #303031;
     list-style: none;
@@ -29,7 +39,6 @@ a.navlink, a.navlink:visited {
     font-weight: 500;
     color: #c8c8c8;
     text-decoration: none;
-    text-transform: lowercase;
     transition: color 0.2s ease;
 }
 
@@ -44,7 +53,7 @@ a.navlink::after, a.active::after {
     top: 18px;
     content: '';
     height: 3px;
-    background: #03a9f4;
+    background: var(--material-blue);
 }
 
 a.navlink::after {
@@ -75,13 +84,57 @@ h1, h2, h3, strong {
     color: #303031;
 }
 
-.content-container, .new-post-container, .blog-container {
-    width: 820px;
+.content-container, .new-post-container, .blog-container, .bloglist-wrapper {
+    width: 930px;
     margin: 0 auto;
-    padding: 5% 0;
+    padding: 10% 0;
+}
+
+.bloglist-wrapper {
+    padding: 0;
 }
 
 .title {
     font-weight: 800;
     font-size: 3em;
+}
+
+.entry-container {
+    width: 820px;
+    padding: 2% 4%;
+    background: white;
+    margin: 25px auto;
+}
+
+.blog-title, .blog-title:visited {
+    font-weight: 700;
+    text-decoration: none;
+    color: #303031;
+}
+
+.pub-date {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.blog-body {
+    white-space: pre-wrap;
+    line-height: 1.8rem;
+    margin-top: 40px;
+}
+
+.goto-entry-button {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #efefef;
+    background: var(--material-blue);
+    border-bottom: 2px solid #0b93a5;
+    margin: 12px 0;;
+    padding: 10px 18px;
+}
+
+.goto-entry-button:hover {
+    background: #26b7f9;
 }
