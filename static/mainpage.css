@@ -2,6 +2,7 @@
 
 :root {
     --material-blue: #03a9f4;
+    --material-red: #f44336;
 }
 
 body, html {
@@ -66,7 +67,7 @@ a.active::after, a.navlink:hover:not(.active)::after {
 }
 
 a.navlink:active::after {
-    width: calc(100% + 24px); 
+    width: calc(100% + 24px);
 }
 
 a.navlink-main, a.navlink-main:visited {
@@ -130,7 +131,7 @@ h1, h2, h3, strong {
     font-weight: 700;
     color: #efefef;
     background: var(--material-blue);
-    border-bottom: 2px solid #0b93a5;
+    border-bottom: 2px solid #0089c7;
     margin: 12px 0;;
     padding: 10px 18px;
 }

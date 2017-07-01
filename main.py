@@ -27,7 +27,7 @@ class Blog(db.Model):
 @app.route('/')
 def index():
     return redirect('/blog')
-    
+
 
 @app.route('/blog')
 def bloglist():
@@ -35,14 +35,14 @@ def bloglist():
 
     if blog_id:
         blog = Blog.query.get(blog_id)
-        return render_template('blog.html', 
-                               blog_title=blog.title, 
+        return render_template('blog.html',
+                               blog_title=blog.title,
                                blog_body=blog.body,
                                pub_date=blog.pubdate,)
     else:
         blogs = Blog.query.order_by(Blog.pubdate.desc()).all()
-        return render_template('bloglist.html', 
-                               title='Bloglist', 
+        return render_template('bloglist.html',
+                               title='Bloglist',
                                blogs=blogs,)
 
 
@@ -55,7 +55,7 @@ def newpost():
         title_error = body_error = ''
 
         if not blog_title:
-            title_error = "Please add a title to your blog."
+            title_error = "Your blog needs a title."
 
         if not blog_body:
             body_error = "Please add some content to your blog post."
@@ -67,16 +67,20 @@ def newpost():
             blog_id = new_blog.id
             return redirect('/blog?id={0}'.format(blog_id))
         else:
-            return render_template('newpost.html', 
-                                   title='New Blog Post', 
-                                   blog_body=blog_body, 
-                                   blog_title=blog_title, 
-                                   title_error=title_error, 
+            return render_template('newpost.html',
+                                   title='New Blog Post',
+                                   blog_body=blog_body,
+                                   blog_title=blog_title,
+                                   title_error=title_error,
                                    body_error=body_error,)
 
-    placeholder = random.choice(["What's on your mind?", "How're you doing today?", "This message is randomly generated!"])
-    return render_template('newpost.html', 
-                           title='New Blog Post', 
+    placeholder = random.choice([
+        "What's on your mind?",
+        "How're you doing today?",
+        "This message is randomly generated! Neat!",
+    ])
+    return render_template('newpost.html',
+                           title='New Blog Post',
                            placeholder=placeholder,)
 
 
