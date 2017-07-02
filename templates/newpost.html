@@ -3,23 +3,24 @@
 {% block content %}
 <div class = "new-post-container">
     <h1 class = "title" >New Blog Post</h1>
-    <form method = 'POST'>
-        <input type = 'text' placeholder = "Blog Title" name = 'blog_title' value = '{{ blog_title }}'/>
-        {% if title_error %}
-            <span class = 'error'>
-                {{ title_error }}
-            </span>
-        {% endif %}
-        <div class = 'blog-body-container'>
-            <textarea placeholder = "{{ placeholder }}"id = "blog-content-input" 
+    <div class = "form-container">
+        <form method = 'POST'>
+            <input class = "title-input-box" type = 'text' placeholder = "Blog Title" name = 'blog_title' value = '{{ blog_title }}'/>
+            {% if title_error %}
+                <span class = 'error'>
+                    {{ title_error }}
+                </span>
+            {% endif %}
+            <textarea id = 'textarea' class = "blog-body-input" placeholder = "{{ placeholder }}"
             name = 'blog_body' maxlength = "500">{{ blog_body }}</textarea>
+            <span id = 'count'></span>
             {% if body_error %}
                 <span class = 'error'>
                     {{ body_error }}
                 </span>
             {% endif %}
-        </div>
-        <input type = 'submit' value = 'Add Entry'/>
-    </form>
+            <input class = "entry-button" type = 'submit' value = 'Add Entry'/>
+        </form>
+    </div>
 </div>
 {% endblock %}

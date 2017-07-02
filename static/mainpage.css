@@ -83,6 +83,8 @@ a.navlink-main, a.navlink-main:visited {
 
 /* End Navbar CSS */
 
+/* --- Bloglist CSS --- */
+
 h1, h2, h3, strong {
     color: #303031;
 }
@@ -90,7 +92,7 @@ h1, h2, h3, strong {
 .content-container, .new-post-container, .blog-container, .bloglist-wrapper {
     width: 930px;
     margin: 0 auto;
-    padding: 10% 0;
+    padding: 90px 0;
 }
 
 .bloglist-wrapper {
@@ -166,19 +168,72 @@ h1, h2, h3, strong {
     margin-top: 40px;
 }
 
-.goto-entry-button {
+.goto-entry-button, .entry-button {
+    cursor: pointer;
     display: inline-block;
     text-decoration: none;
+    text-transform: uppercase;
+    font-family: "Raleway", sans-serif;
     font-size: 0.8rem;
     font-weight: 700;
     color: white;
     background: var(--material-blue);
+    border: none;
     border-bottom: 2px solid #0089c7;
     border-radius: 3px;
     margin: 12px 0;;
     padding: 10px 18px;
 }
 
-.goto-entry-button:hover {
+.entry-button {
+    display: block;
+    margin: 1.5em;
+}
+
+.goto-entry-button:hover, .entry-button:hover {
     background: #26b7f9;
+}
+
+/* End Bloglist CSS */
+
+.form-container {
+    padding: 2em 1em;
+    background-color: white;
+}
+
+.title-input-box, .blog-body-input {
+    font-size: 1em;
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    margin: 1.5em;
+    padding: 0.75em 1.5em;
+    width: 300px;
+    border: 2px solid #c3c2c2;
+    border-radius: 6px;
+    transition: border 150ms ease;
+}
+
+.title-input-box::placeholder {
+    color: #c3c2c2;
+}
+
+.title-input-box:hover, .title-input-box:focus,
+.blog-body-input:hover, .blog-body-input:focus {
+    border-color: var(--material-blue);
+}
+
+.title-input-box:focus, .blog-body-input:focus {
+    outline: none;
+}
+
+.blog-body-input {
+    font-weight: 500;
+    resize: none;
+    width: 600px;
+    height: 300px;
+}
+
+.blog-body-input::placeholder {
+    font-weight: 700;
+    color: #c3c2c2;
 }
