@@ -194,6 +194,10 @@ h1, h2, h3, strong {
     background: #26b7f9;
 }
 
+.goto-entry-button:active, .entry-button:active {
+    outline: none;
+}
+
 /* End Bloglist CSS */
 
 .form-container {
@@ -226,7 +230,13 @@ h1, h2, h3, strong {
     outline: none;
 }
 
+.blog-body-input-container {
+    margin: 1.5em;
+    width: 652px;
+}
+
 .blog-body-input {
+    margin: 0;
     font-weight: 500;
     resize: none;
     width: 600px;
@@ -236,4 +246,12 @@ h1, h2, h3, strong {
 .blog-body-input::placeholder {
     font-weight: 700;
     color: #c3c2c2;
+}
+
+#counter {
+    border-bottom: 2px solid var(--material-blue);
+    padding: 0.2em 0.4em;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    float: right;
 }

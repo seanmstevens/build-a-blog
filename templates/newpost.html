@@ -5,15 +5,18 @@
     <h1 class = "title" >New Blog Post</h1>
     <div class = "form-container">
         <form method = 'POST'>
-            <input class = "title-input-box" type = 'text' placeholder = "Blog Title" name = 'blog_title' value = '{{ blog_title }}'/>
+            <input class = "title-input-box" type = 'text' 
+            placeholder = "Blog Title" name = 'blog_title' value = '{{ blog_title }}'/>
             {% if title_error %}
                 <span class = 'error'>
                     {{ title_error }}
                 </span>
             {% endif %}
-            <textarea id = 'textarea' class = "blog-body-input" placeholder = "{{ placeholder }}"
-            name = 'blog_body' maxlength = "500">{{ blog_body }}</textarea>
-            <span id = 'count'></span>
+            <div class = "blog-body-input-container">
+                <textarea id = 'textarea' class = "blog-body-input" placeholder = "{{ placeholder }}"
+                name = 'blog_body' maxlength = "500">{{ blog_body }}</textarea>
+                <p id = 'counter'></p>
+            </div>
             {% if body_error %}
                 <span class = 'error'>
                     {{ body_error }}
