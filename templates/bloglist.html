@@ -10,7 +10,7 @@
                     <p class = "pub-month">{{ blog.pubdate.strftime('%b') }}
                     <p class = "pub-date">{{ blog.pubdate.strftime('%d') }}</p>
                 </div>
-                <div class = "blog-details">
+                <div class = "blog-details break">
                     <a class = "blog-title" href = '/blog?id={{ blog.id }}'>{{ blog.title }}</a>
                     <p class = "pub-time">Published at {{ blog.pubdate.strftime('%I:%M %p') }}</p>
                 </div>

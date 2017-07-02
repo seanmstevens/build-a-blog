@@ -17,6 +17,15 @@ hr {
     border: 2px dashed #c3c3c3;
 }
 
+.break {
+    max-width: 700px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    word-break: break-word;
+    hyphens: auto;
+}
+
 /* Navbar CSS */
 
 ul#navbar {
@@ -101,6 +110,10 @@ h1, h2, h3, strong {
 }
 
 .title {
+    display: inline-block;
+    border-bottom: 3px dashed #c3c3c3;
+    margin-bottom: 0.2em;
+    padding-bottom: 0.1em;
     font-weight: 800;
     font-size: 3em;
 }
@@ -121,9 +134,8 @@ h1, h2, h3, strong {
 }
 
 .date-bubble {
-    margin: 0 20px 0 0;
-    position: relative;
-    display: inline-block;
+    float: left;
+    margin: 5px 25px 5px 0;
     font-size: 2rem;
     font-weight: 700;
     text-align: center;
@@ -194,22 +206,26 @@ h1, h2, h3, strong {
     background: #26b7f9;
 }
 
-.goto-entry-button:active, .entry-button:active {
+.goto-entry-button:focus, .entry-button:focus {
     outline: none;
 }
 
 /* End Bloglist CSS */
 
 .form-container {
+    margin-top: 2em;
+    border-left: 5px solid var(--material-blue);
     padding: 2em 1em;
     background-color: white;
 }
 
-.title-input-box, .blog-body-input {
+/* --- TITLE INPUT --- */
+
+.title-input, .blog-body-input {
     font-size: 1em;
     font-family: "Raleway", sans-serif;
     font-weight: 700;
-    margin: 1.5em;
+    margin: 0;
     padding: 0.75em 1.5em;
     width: 300px;
     border: 2px solid #c3c2c2;
@@ -217,18 +233,24 @@ h1, h2, h3, strong {
     transition: border 150ms ease;
 }
 
-.title-input-box::placeholder {
+.title-input-box {
+    margin: 1.5em;
+}
+
+.title-input::placeholder {
     color: #c3c2c2;
 }
 
-.title-input-box:hover, .title-input-box:focus,
+.title-input:hover, .title-input:focus,
 .blog-body-input:hover, .blog-body-input:focus {
     border-color: var(--material-blue);
 }
 
-.title-input-box:focus, .blog-body-input:focus {
+.title-input:focus, .blog-body-input:focus {
     outline: none;
 }
+
+/* --- BODY INPUT --- */
 
 .blog-body-input-container {
     margin: 1.5em;
@@ -240,7 +262,7 @@ h1, h2, h3, strong {
     font-weight: 500;
     resize: none;
     width: 600px;
-    height: 300px;
+    height: 285px;
 }
 
 .blog-body-input::placeholder {
@@ -249,9 +271,21 @@ h1, h2, h3, strong {
 }
 
 #counter {
-    border-bottom: 2px solid var(--material-blue);
+    float: right;
+    margin-top: 0;
     padding: 0.2em 0.4em;
+    border-bottom: 2px solid var(--material-blue);
     letter-spacing: 0.05em;
     font-weight: 700;
-    float: right;
+}
+
+.error {
+    margin: 0 0 0 0.33em;
+    color: var(--material-red);
+    font-weight: 500;
+    font-size: 0.8em;
+}
+
+p.error {
+    margin-top: 6px;
 }

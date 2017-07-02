@@ -5,23 +5,27 @@
     <h1 class = "title" >New Blog Post</h1>
     <div class = "form-container">
         <form method = 'POST'>
-            <input class = "title-input-box" type = 'text' 
-            placeholder = "Blog Title" name = 'blog_title' value = '{{ blog_title }}'/>
-            {% if title_error %}
-                <span class = 'error'>
-                    {{ title_error }}
-                </span>
-            {% endif %}
+            <div class = "title-input-box">
+                <input class = "title-input" type = 'text' maxlength = "70"
+                placeholder = "Blog Title" name = 'blog_title' value = '{{ blog_title }}'/>
+                {% if title_error %}
+                    <p class = 'error'>
+                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                        {{ title_error }}
+                    </p>
+                {% endif %}
+            </div>
             <div class = "blog-body-input-container">
-                <textarea id = 'textarea' class = "blog-body-input" placeholder = "{{ placeholder }}"
+                <textarea id = 'textarea' class = "blog-body-input" placeholder = "{{placeholder}}" 
                 name = 'blog_body' maxlength = "500">{{ blog_body }}</textarea>
                 <p id = 'counter'></p>
+                {% if body_error %}
+                    <span class = 'error'>
+                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                        {{ body_error }}
+                    </span>
+                {% endif %}
             </div>
-            {% if body_error %}
-                <span class = 'error'>
-                    {{ body_error }}
-                </span>
-            {% endif %}
             <input class = "entry-button" type = 'submit' value = 'Add Entry'/>
         </form>
     </div>

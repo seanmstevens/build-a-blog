@@ -13,7 +13,7 @@ db = SQLAlchemy(app)
 class Blog(db.Model):
 
     id = db.Column(db.Integer, primary_key = True)
-    title = db.Column(db.String(120))
+    title = db.Column(db.String(70))
     body = db.Column(db.String(500))
     pubdate = db.Column(db.DateTime)
 
@@ -49,6 +49,13 @@ def bloglist():
 @app.route('/newpost', methods = ['POST', 'GET'])
 def newpost():
 
+    placeholder = random.choice([
+        "What's on your mind?",
+        "How're you doing today?",
+        "This message is randomly generated! Neat!",
+        "I'm running out of random messages to display...",
+    ])
+
     if request.method == 'POST':
         blog_title = request.form['blog_title']
         blog_body = request.form['blog_body']
@@ -72,13 +79,9 @@ def newpost():
                                    blog_body=blog_body,
                                    blog_title=blog_title,
                                    title_error=title_error,
-                                   body_error=body_error,)
+                                   body_error=body_error,
+                                   placeholder=placeholder,)
 
-    placeholder = random.choice([
-        "What's on your mind?",
-        "How're you doing today?",
-        "This message is randomly generated! Neat!",
-    ])
     return render_template('newpost.html',
                            title='New Blog Post',
                            placeholder=placeholder,)
