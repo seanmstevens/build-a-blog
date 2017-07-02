@@ -13,12 +13,14 @@ body, html {
 }
 
 hr {
+    margin: 45px auto;
     border: 2px dashed #c3c3c3;
 }
 
 /* Navbar CSS */
 
 ul#navbar {
+    z-index: 100;
     position: fixed;
     width: 100%;
     box-shadow: 0 0 8px #444444;
@@ -92,6 +94,7 @@ h1, h2, h3, strong {
 }
 
 .bloglist-wrapper {
+    margin-top: 65px;
     padding: 0;
 }
 
@@ -104,18 +107,57 @@ h1, h2, h3, strong {
     width: 820px;
     padding: 2% 4%;
     background: white;
+    border-left: 4px solid var(--material-blue);
     margin: 25px auto;
 }
 
 .blog-title, .blog-title:visited {
+    font-size: 2.3em;
     font-weight: 700;
     text-decoration: none;
     color: #303031;
 }
 
-.pub-date {
-    font-size: 0.9rem;
+.date-bubble {
+    margin: 0 20px 0 0;
+    position: relative;
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    height: 80px;
+    width: 80px;
+    border: 3px dashed var(--material-blue);
+    border-radius: 1000px;
+}
+
+.pub-month {
+    position: relative;
+    margin-top: 14px;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    font-size: 0.4em;
     font-weight: 500;
+    left: 0.1em;
+    letter-spacing: 0.2em;
+}
+
+.blog-details {
+    display: inline-block;
+    position: relative;
+    top: 12px;
+}
+
+.pub-date {
+    margin-top: 0;
+}
+
+.pub-time {
+    position: relative;
+    font-family: monospace;
+    letter-spacing: 0.15em;
+    bottom: 10px;
+    font-size: 1em;
 }
 
 .blog-body {
@@ -129,9 +171,10 @@ h1, h2, h3, strong {
     text-decoration: none;
     font-size: 0.8rem;
     font-weight: 700;
-    color: #efefef;
+    color: white;
     background: var(--material-blue);
     border-bottom: 2px solid #0089c7;
+    border-radius: 3px;
     margin: 12px 0;;
     padding: 10px 18px;
 }

@@ -6,8 +6,14 @@
     <div class = "bloglist-wrapper">
         {% for blog in blogs %}
             <div class = "entry-container">
-                <h1><a class = "blog-title" href = '/blog?id={{ blog.id }}'>{{ blog.title }}</a></h1>
-                <p class = "pub-date" >Published on {{ blog.pubdate.strftime('%B %d, %Y') }}</p>
+                <div class = "date-bubble">
+                    <p class = "pub-month">{{ blog.pubdate.strftime('%b') }}
+                    <p class = "pub-date">{{ blog.pubdate.strftime('%d') }}</p>
+                </div>
+                <div class = "blog-details">
+                    <a class = "blog-title" href = '/blog?id={{ blog.id }}'>{{ blog.title }}</a>
+                    <p class = "pub-time">Published at {{ blog.pubdate.strftime('%I:%M %p') }}</p>
+                </div>
                 <p class = "blog-body" >{{ blog.body }}</p>
                 <a class = "goto-entry-button" href = '/blog?id={{ blog.id }}'>READ MORE</a>
             </div>

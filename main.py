@@ -21,7 +21,7 @@ class Blog(db.Model):
         self.title = title
         self.body = body
         if pubdate is None:
-            pubdate = datetime.utcnow()
+            pubdate = datetime.now()
         self.pubdate = pubdate
 
 @app.route('/')
