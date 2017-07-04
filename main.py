@@ -32,6 +32,7 @@ def index():
 @app.route('/blog')
 def bloglist():
     blog_id = request.args.get('id')
+    blogs = Blog.query.order_by(Blog.pubdate.desc()).all()
 
     if blog_id:
         blog = Blog.query.get(blog_id)
@@ -45,9 +46,9 @@ def bloglist():
                                pubtime=pubtime,
                                blog_title=blog.title,
                                blog_body=blog.body,
-                               pub_date=blog.pubdate,)
+                               pub_date=blog.pubdate,
+                               blogs=blogs,)
     else:
-        blogs = Blog.query.order_by(Blog.pubdate.desc()).all()
         return render_template('bloglist.html',
                                title='Bloglist',
                                blogs=blogs,)
@@ -55,6 +56,7 @@ def bloglist():
 
 @app.route('/newpost', methods = ['POST', 'GET'])
 def newpost():
+    blogs = Blog.query.order_by(Blog.pubdate.desc()).all()
 
     placeholder = random.choice([
         "What's on your mind?",
@@ -87,11 +89,13 @@ def newpost():
                                    blog_title=blog_title,
                                    title_error=title_error,
                                    body_error=body_error,
-                                   placeholder=placeholder,)
+                                   placeholder=placeholder,
+                                   blogs=blogs,)
 
     return render_template('newpost.html',
                            title='New Blog Post',
-                           placeholder=placeholder,)
+                           placeholder=placeholder,
+                           blogs=blogs,)
 
 
 if __name__ == '__main__':

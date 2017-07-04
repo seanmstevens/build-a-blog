@@ -17,6 +17,10 @@ hr {
     border: 2px dashed #c3c3c3;
 }
 
+h1, h2, h3, strong {
+    color: #303031;
+}
+
 .break {
     max-width: 700px;
     overflow-wrap: break-word;
@@ -34,7 +38,7 @@ ul#topnav {
     z-index: 100;
     position: fixed;
     width: 100%;
-    /* box-shadow: 0 0 8px #444444; */
+    box-shadow: 0 0 5px #444444;
     background-color: #303031;
     list-style: none;
     overflow: hidden;
@@ -44,6 +48,12 @@ ul#topnav {
 
 li {
     float: left;
+}
+
+.fa-bars {
+    padding: 12.5px 12.5px 12.5px 22.5px;
+    cursor: pointer;
+    color: #f5f6f6;
 }
 
 a.navlink, a.navlink:visited {
@@ -83,34 +93,47 @@ a.navlink:active::after {
     width: calc(100% + 24px);
 }
 
-a.navlink-main, a.navlink-main:visited {
+a.navlink-main, a.navlink-main:visited, .dark {
     display: block;
-    padding: 10px 30px;
+    padding: 10px 30px 10px 0;
+    margin-left: 20px;
     font-size: 2em;
     font-weight: 700;
     color: #f5f6f6;
     text-decoration: none;
 }
 
+.dark {
+    position: absolute;
+    bottom: 25px;
+    color: #303031;
+}
+
 /* Side Navigation */
 
 .sidenav {
-    height: calc(100% - 57px);
+    height: 100%;
     width: 0;
     position: fixed;
-    z-index: 99;
-    top: 57px;
+    z-index: 200;
+    top: 0;
     left: 0;
-    background-color: #111;
+    background-color: #efefef;
     overflow-x: hidden;
     border-right: 0 solid var(--material-blue);
-    padding-top: 60px;
-    transition: width 275ms cubic-bezier(.5,.08,0,1);
+    transition: 275ms cubic-bezier(.5, .08 ,0 ,1);
+    transition-property: width, border;
 }
 
-.sidenav a {
+.sidenav::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+}
+
+.side-navlink, .closebtn {
+    font-weight: 500;
     display: block;
-    padding: 8px 16px 8px 32px;
+    padding: 8px 16px 8px 22px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -119,12 +142,24 @@ a.navlink-main, a.navlink-main:visited {
     color: #818181;
 }
 
-.sidenav a:hover {
-    color: #efefef;
+.sidenav .closebtn {
+    position: relative;
+    bottom: 12px;
+    left: 2px;
+    font-size: 50px;
+    height: 45px;
+    padding: 0;
+    margin: 8px 16px 32px 22px;
+    display: inline-block;
+}
+
+.side-navlink:hover, .closebtn:hover {
+    color: #303031;
 }
 
 #main {
-    transition: 275ms cubic-bezier(.5,.08,0,1);;
+    overflow-x: hidden;
+    transition: 275ms cubic-bezier(.5,.08,0,1);
 }
 
 .overlay {
@@ -136,7 +171,8 @@ a.navlink-main, a.navlink-main:visited {
     background-color: #000;
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0ms linear, opacity 250ms ease;
+    transition: visibility 0ms linear,
+                opacity 250ms ease;
 }
 
 .overlay-show {
@@ -146,10 +182,6 @@ a.navlink-main, a.navlink-main:visited {
 
 /* --- BLOGLIST CSS --- */
 
-h1, h2, h3, strong {
-    color: #303031;
-}
-
 .content-container, .new-post-container, .blog-container, .bloglist-wrapper {
     width: 930px;
     margin: 0 auto;
@@ -157,7 +189,7 @@ h1, h2, h3, strong {
 }
 
 .blog-container {
-    padding: 7.5% 0 0;
+    padding: 15vh 0 0;
 }
 
 .bloglist-wrapper {

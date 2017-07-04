@@ -25,7 +25,7 @@ function openNav() {
     var sidenav = document.getElementById('sidenav');
     var main = document.getElementById('main');
     sidenav.style.width = "250px";
-    sidenav.style.borderRightWidth = "3px";
+    sidenav.style.borderRightWidth = "5px";
     main.style.marginLeft = "125px";
     document.getElementById('overlay').className += ' overlay-show';
 }

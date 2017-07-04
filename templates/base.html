@@ -10,6 +10,7 @@
     </head>
     <body>
         <ul id = "topnav">
+            <li><i class = "fa fa-bars fa-2x" aria-hidden="true" onclick = "openNav()"></i></li>
             <li><a class = "navlink-main" href = '/blog'>tinyblog.io</a></li>
             {# The following conditional is being used to check if a query parameter is present. If it is, do not apply
             the supplemental CSS class. #}
@@ -23,8 +24,9 @@
             {% for blog in blogs %}
                 <a class = "side-navlink" href = '/blog?id={{ blog.id }}'>{{ blog.title }}</a></li>
             {% endfor %}
+            <a class = "dark" href = "/blog">tinyblog.io</a>
         </div>
-        <div id = "overlay" class = "overlay"></div>>
+        <div id = "overlay" class = "overlay" onclick = "closeNav()"></div>>
         <div id = "main">
             {% block content %}
             {% endblock %}
