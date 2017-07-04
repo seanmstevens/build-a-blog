@@ -35,7 +35,14 @@ def bloglist():
 
     if blog_id:
         blog = Blog.query.get(blog_id)
+        pubmonth = blog.pubdate.strftime('%b')
+        pubdate = blog.pubdate.strftime('%d')
+        pubtime = blog.pubdate.strftime('%I:%M %p')
         return render_template('blog.html',
+                               title=blog.title,
+                               pubmonth=pubmonth,
+                               pubdate=pubdate,
+                               pubtime=pubtime,
                                blog_title=blog.title,
                                blog_body=blog.body,
                                pub_date=blog.pubdate,)

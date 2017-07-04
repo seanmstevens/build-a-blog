@@ -20,3 +20,17 @@ function charCounter() {
         text.addEventListener('keydown', count);
     };
 };
+
+function openNav() {
+    var sidenav = document.getElementById('sidenav');
+    sidenav.style.width = "250px";
+    sidenav.style.borderRightWidth = "3px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+    var sidenav = document.getElementById('sidenav');
+    sidenav.style.width = "0";
+    sidenav.style.borderRightWidth = "0";
+    document.getElementById("main").style.marginLeft = "0";
+}

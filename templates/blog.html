@@ -2,8 +2,16 @@
 
 {% block content %}
 <div class = "blog-container">
-    <h1 class = "title break" >{{ blog_title }}</h1>
+    <div class = "date-bubble large">
+        <p class = "pub-month large">{{ pubmonth }}</p>
+        <p class = "pub-date">{{ pubdate }}</p>
+    </div>
+    <div class = "blog-details break">
+        <h1 class = "blog-title large" >{{ blog_title }}</h1>
+        <p class = "pub-time large">Published at {{ pubtime }}</p>
+    </div>
     <p class = "blog-body" >{{ blog_body }}</p>
+    <a class = "goto-entry-button" href = '/blog'>BACK TO BLOGLIST</a>
 </div>
 
 {% endblock %}
