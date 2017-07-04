@@ -2,12 +2,12 @@
 
 {% block content %}
 <div class = "content-container">
-    <h1 class = "title" >My Bloglist</h1>
+    <h1 onclick = "openNav()" class = "title" >My Bloglist</h1>
     <div class = "bloglist-wrapper">
         {% for blog in blogs %}
             <div class = "entry-container">
                 <div class = "date-bubble">
-                    <p class = "pub-month">{{ blog.pubdate.strftime('%b') }}
+                    <p class = "pub-month">{{ blog.pubdate.strftime('%b') }}</p>
                     <p class = "pub-date">{{ blog.pubdate.strftime('%d') }}</p>
                 </div>
                 <div class = "blog-details break">
