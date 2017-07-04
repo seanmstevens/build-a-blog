@@ -24,17 +24,21 @@ function charCounter() {
 function openNav() {
     var sidenav = document.getElementById('sidenav');
     var main = document.getElementById('main');
-    sidenav.style.width = "250px";
+    var footer = document.getElementById('menu-footer');
+    sidenav.style.transform = "translate(0)";
     sidenav.style.borderRightWidth = "5px";
-    main.style.marginLeft = "125px";
+    footer.style.transform = "translate(0)";
+    main.style.transform = "translate(125px)";
     document.getElementById('overlay').className += ' overlay-show';
 }
 
 function closeNav() {
     var sidenav = document.getElementById('sidenav');
     var main = document.getElementById('main');
-    sidenav.style.width = "0";
+    var footer = document.getElementById('menu-footer');
+    sidenav.style.transform = "translate(-100%)";
     sidenav.style.borderRightWidth = "0";
-    main.style.marginLeft = "0";
+    footer.style.transform = "translate(-100%)";
+    main.style.transform = "translate(0)";
     document.getElementById('overlay').className = 'overlay';
 }
