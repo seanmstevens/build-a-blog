@@ -110,7 +110,7 @@ a.navlink-main, a.navlink-main:visited {
     height: 100%;
     width: 250px;
     position: fixed;
-    z-index: 200;
+    z-index: 101;
     top: 0;
     left: 0;
     background-color: #efefef;
@@ -149,21 +149,26 @@ a.navlink-main, a.navlink-main:visited {
     display: inline-block;
 }
 
+.sidenav .navlink-wrapper {
+    padding-bottom: 200px;
+}
+
 .side-navlink:hover, .closebtn:hover {
     color: #303031;
 }
 
 .menu-footer {
     position: fixed;
+    z-index: 102;
     bottom: 0;
     height: 60px;
     text-align: center;
     margin: 0;
-    padding: 8px 0;
     width: 250px;
-    background: var(--material-blue);
+    padding: 8px auto;
     transform: translate(-100%);
-    transition: transform 275ms cubic-bezier(.5, .08 ,0 ,1);
+    background: var(--material-blue);
+    transition: transform 275ms cubic-bezier(.5,.08,0,1);
 }
 
 #main {
@@ -182,7 +187,7 @@ a.navlink-main, a.navlink-main:visited {
     visibility: hidden;
     opacity: 0;
     transition: visibility 0ms linear,
-                opacity 250ms ease;
+                opacity 275ms ease;
 }
 
 .overlay-show {

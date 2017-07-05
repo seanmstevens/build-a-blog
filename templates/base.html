@@ -20,14 +20,16 @@
                     href = '/newpost'>New Blog Post</a></li>
         </ul>
         <div id = "sidenav" class = "sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            {% for blog in blogs %}
-                <a class = "side-navlink" href = '/blog?id={{ blog.id }}'>{{ blog.title }}</a></li>
-            {% endfor %}
+                <div class = "navlink-wrapper">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                {% for blog in blogs %}
+                    <a class = "side-navlink" href = '/blog?id={{ blog.id }}'>{{ blog.title }}</a></li>
+                {% endfor %}
+            </div>
+        </div>
             <div id = "menu-footer" class = "menu-footer">
                 <a class = "navlink-main" href = "/blog">tinyblog.io</a>
             </div>
-        </div>
         <div id = "overlay" class = "overlay" onclick = "closeNav()"></div>>
         <div id = "main">
             {% block content %}
