@@ -1,4 +1,5 @@
 window.onload = charCounter;
+window.onload = expandList;
 
 function charCounter() {
     if (window.location.pathname == "/newpost") {
@@ -41,4 +42,20 @@ function closeNav() {
     footer.style.transform = "translate(-100%)";
     main.style.transform = "translate(0)";
     document.getElementById('overlay').className = 'overlay';
+}
+
+function expandList() {
+    var list = document.getElementById('expanding-list');
+    var link = document.getElementById('entries-link');
+    var linkQuanity = document.querySelectorAll('#expanding-list .side-navlink').length;
+    var boxHeight = linkQuanity * 33;
+    var count = 0;
+    link.onclick = function() {
+        count += 1;
+        if (count % 2 === 1) {
+            list.style.height = boxHeight + "px";
+        } else {
+            list.style.height = "0";
+        }
+    }
 }

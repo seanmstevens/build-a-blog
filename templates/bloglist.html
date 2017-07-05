@@ -19,7 +19,7 @@
             </div>
             {# The following conditional will not add a row separator after the last blog entry #}
             {% if blogs.index(blog) != (len(blogs) - 1) %}
-                <hr>
+                <hr class = "separator">
             {% endif %}
         {% endfor %}
     </div>
