@@ -211,13 +211,14 @@ hr.menu-line {
     background-color: #000;
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0ms linear,
-                opacity 275ms ease;
+    transition: visibility 0ms linear 200ms,
+                opacity 200ms ease;
 }
 
 .overlay-show {
     visibility: visible;
     opacity: 0.55;
+    transition-delay: 0ms;
 }
 
 /* --- BLOGLIST CSS --- */
