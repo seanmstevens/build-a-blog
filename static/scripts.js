@@ -1,6 +1,3 @@
-window.onload = charCounter;
-window.onload = expandList;
-
 function charCounter() {
     if (window.location.pathname == "/newpost") {
         var text = document.getElementById('textarea');
@@ -59,3 +56,20 @@ function expandList() {
         }
     }
 }
+
+function addLoadEvent(func) {
+    var oldonload = window.onload;
+    if (typeof window.onload != 'function') {
+        window.onload = func;
+    } else {
+        window.onload = function() {
+            if (oldonload) {
+                oldonload();
+            }
+        func();
+        }
+    }
+}
+
+addLoadEvent(charCounter);
+addLoadEvent(expandList);
