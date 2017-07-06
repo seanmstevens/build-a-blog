@@ -1,28 +1,8 @@
-from flask import Flask, request, redirect, render_template
-from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
+from flask import request, redirect, render_template
+from app import app, db
+from models import Blog
 import random
 
-app = Flask(__name__)
-app.config['DEBUG'] = True
-app.add_template_global(len, name='len')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://build-a-blog:admin@localhost:8889/build-a-blog'
-app.config['SQLALCHEMY_ECHO'] = True
-db = SQLAlchemy(app)
-
-class Blog(db.Model):
-
-    id = db.Column(db.Integer, primary_key = True)
-    title = db.Column(db.String(70))
-    body = db.Column(db.String(500))
-    pubdate = db.Column(db.DateTime)
-
-    def __init__(self, title, body, pubdate = None):
-        self.title = title
-        self.body = body
-        if pubdate is None:
-            pubdate = datetime.now()
-        self.pubdate = pubdate
 
 @app.route('/')
 def index():
