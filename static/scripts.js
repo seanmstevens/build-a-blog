@@ -1,3 +1,5 @@
+// Newpost Character Counter
+
 function charCounter() {
     if (window.location.pathname == "/newpost") {
         var text = document.getElementById('textarea');
@@ -19,6 +21,8 @@ function charCounter() {
     };
 };
 
+// Expanding Sidenav
+
 function openNav() {
     var sidenav = document.getElementById('sidenav');
     var main = document.getElementById('main');
@@ -26,7 +30,7 @@ function openNav() {
     sidenav.style.transform = "translate(0)";
     sidenav.style.borderRightWidth = "5px";
     footer.style.transform = "translate(0)";
-    main.style.transform = "translate(125px)";
+    main.style.transform = "translate(85px)";
     document.getElementById('overlay').className += ' overlay-show';
 }
 
@@ -40,6 +44,8 @@ function closeNav() {
     main.style.transform = "translate(0)";
     document.getElementById('overlay').className = 'overlay';
 }
+
+// Expanding Submenu
 
 function expandList() {
     var list = document.getElementById('expanding-list');
